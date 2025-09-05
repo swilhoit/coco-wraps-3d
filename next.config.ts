@@ -8,31 +8,18 @@ const nextConfig: NextConfig = {
   },
   compress: true,
   poweredByHeader: false,
-  webpack: (config) => {
-    // Optimize bundle size
-    config.optimization = {
-      ...config.optimization,
-      moduleIds: 'deterministic',
-      splitChunks: {
-        chunks: 'all',
-        cacheGroups: {
-          three: {
-            test: /[\\/]node_modules[\\/]three/,
-            name: 'three',
-            priority: 10,
-          },
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendor',
-            priority: 1,
-          },
-        },
-      },
-    }
-    return config
-  },
-  // Remove standalone output for now
   trailingSlash: false,
+  
+  // Simplified webpack config for deployment
+  webpack: (config, { isServer }) => {
+    // Handle GLB files
+    config.module.rules.push({
+      test: /\.(glb|gltf)$/,
+      type: 'asset/resource',
+    });
+    
+    return config;
+  },
 };
 
 export default nextConfig;
