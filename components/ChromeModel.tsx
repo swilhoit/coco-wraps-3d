@@ -179,6 +179,7 @@ function CocoModel({ currentTexture }: { currentTexture: string | null }) {
       onPointerUp={() => setIsDragging(false)}
       onPointerLeave={() => setIsDragging(false)}
       scale={[2, 2, 2]}
+      position={[0, -1, 0]}
     >
       <primitive object={scene} />
       {isLoading && (
