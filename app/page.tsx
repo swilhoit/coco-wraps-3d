@@ -1,26 +1,19 @@
-'use client'
-
-import dynamic from 'next/dynamic'
-import ThemeToggle from '@/components/ThemeToggle'
-
-// Lazy load the 3D component
-const ChromeModel = dynamic(() => import('@/components/ChromeModel'), {
-  ssr: false,
-  loading: () => (
-    <div className="fixed inset-0 flex items-center justify-center bg-background">
-      <div className="text-center">
-        <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 dark:border-white"></div>
-        <p className="mt-4 text-gray-600 dark:text-gray-400">Loading 3D Experience...</p>
-      </div>
-    </div>
-  )
-})
-
 export default function Home() {
   return (
-    <div className="fixed inset-0 w-full h-full bg-background transition-colors duration-300">
-      <ThemeToggle />
-      <ChromeModel />
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          Coco Wraps 3D
+        </h1>
+        <p className="text-gray-600 mb-8">
+          Interactive 3D product showcase
+        </p>
+        <div className="bg-white p-8 rounded-lg shadow-lg">
+          <p className="text-sm text-gray-500">
+            Site is loading... This is a test to verify basic deployment.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
