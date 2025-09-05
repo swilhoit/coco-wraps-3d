@@ -1,6 +1,5 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -10,9 +9,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   trailingSlash: false,
   
-  // Simplified webpack config for deployment
-  webpack: (config, { isServer }) => {
-    // Handle GLB files
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.(glb|gltf)$/,
       type: 'asset/resource',
@@ -22,4 +19,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
