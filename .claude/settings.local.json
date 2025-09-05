@@ -23,7 +23,8 @@
       "Bash(gh repo sync:*)",
       "Bash(git config:*)",
       "Bash(npm run build:*)",
-      "Bash(npm run lint)"
+      "Bash(npm run lint)",
+      "Bash(mkdir:*)"
     ],
     "deny": [],
     "ask": []
