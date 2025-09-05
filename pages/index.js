@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic'
+import PasswordProtect from '../components/PasswordProtect'
 
 // Dynamic import to avoid SSR issues
 const ChromeModel = dynamic(() => import('../components/ChromeModel'), {
@@ -40,7 +41,7 @@ const ThemeToggle = dynamic(() => import('../components/ThemeToggle'), {
 
 export default function Home() {
   return (
-    <>
+    <PasswordProtect>
       <div style={{
         position: 'fixed',
         inset: 0,
@@ -52,7 +53,7 @@ export default function Home() {
         <ThemeToggle />
         <ChromeModel />
       </div>
-    </>
+    </PasswordProtect>
   )
 }
 
